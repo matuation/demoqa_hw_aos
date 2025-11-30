@@ -1,0 +1,1 @@
+setTimeout(function(){debugger;}, 5000) - заморозить консоль чтобы выбрать выпадающий элемент https://osipenkov.ru/track-disap-elem/
