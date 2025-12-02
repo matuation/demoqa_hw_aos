@@ -1,5 +1,4 @@
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.commands.ScrollIntoView;
 import com.codeborne.selenide.commands.ScrollTo;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -9,18 +8,16 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class PracticeFormTests {
 
     @BeforeAll
-    static void BeforeAll() {
+    static void beforeAll() {
         //Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com/";
         Configuration.pageLoadStrategy = "eager";
         //Configuration.holdBrowserOpen = true;
         //Configuration.timeout = 5000; // default 4000
-        new ScrollTo();
     }
 
     @Test
@@ -28,11 +25,11 @@ public class PracticeFormTests {
         //открываем форму
     open("automation-practice-form");
         //заполняем форму
-        $("#userForm #firstName").setValue("Sven");
-        $("#userForm #lastName").setValue("Macshnacnecs");
-        $("#userForm #userEmail").setValue("sven@macshnacnecs.com");
+        $("#firstName").setValue("Sven");
+        $("#lastName").setValue("Macshnacnecs");
+        $("#userEmail").setValue("sven@macshnacnecs.com");
         $("#genterWrapper").$(byText("Other")).click();
-        $("#userForm #userNumber").setValue("1234567890");
+        $("#userNumber").setValue("1234567890");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").$(byText("1991")).click();
         $(".react-datepicker__month-select").$(byText("July")).click();
@@ -42,8 +39,8 @@ public class PracticeFormTests {
         $(".subjects-auto-complete__menu-list").$(byText("Accounting")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
-        $(byCssSelector("input[type='file']")).uploadFile(new File("src/test/data/sample.png"));
-        $("#userForm #currentAddress").setValue("1835 73rd Ave NE, Medina, WA 98039, USA");
+        $(byCssSelector("input[type='file']")).uploadFromClasspath("sample.png");
+        $("#currentAddress").setValue("1835 73rd Ave NE, Medina, WA 98039, USA");
         $("#state").click();
         $(".css-26l3qy-menu").$(byText("Uttar Pradesh")).click();
         $("#city").click();
