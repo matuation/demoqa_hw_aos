@@ -39,7 +39,7 @@ public class PracticeFormTests {
         $(".subjects-auto-complete__menu-list").$(byText("Accounting")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
-        $(byCssSelector("input[type='file']")).uploadFromClasspath("sample.png");
+        $("#uploadPicture").uploadFromClasspath("sample.png");
         $("#currentAddress").setValue("1835 73rd Ave NE, Medina, WA 98039, USA");
         $("#state").click();
         $(".css-26l3qy-menu").$(byText("Uttar Pradesh")).click();
