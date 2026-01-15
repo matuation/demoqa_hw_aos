@@ -18,12 +18,16 @@ public class PracticeFormTests {
         Configuration.pageLoadStrategy = "eager";
         //Configuration.holdBrowserOpen = true;
         //Configuration.timeout = 5000; // default 4000
+        //Configuration.browser = "chrome";
+        //Configuration.browserVersion = "128.0";
+        //Configuration.browserVersion = "130.0";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
     @Test
-    void successfulFormFillTest(){
+    void successfulFormFillTest() {
         //открываем форму
-    open("automation-practice-form");
+        open("automation-practice-form");
         //заполняем форму
         $("#firstName").setValue("Sven");
         $("#lastName").setValue("Macshnacnecs");
